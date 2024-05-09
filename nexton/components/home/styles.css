@@ -1,0 +1,23 @@
+/* slider */
+.swiper {
+  margin: 0;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+}
+.swiper-pagination-bullet-active{
+  background-color: black;
+}
+.swiper-pagination-bullet-active-long{
+  background-color: black;
+  width: 8pxl;
+  border-radius: 16px;
+
+}
+/* */
