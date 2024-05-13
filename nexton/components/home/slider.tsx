@@ -26,9 +26,7 @@ export default function Silder() {
 
   return (
     <>
-    
-      <div className="warpper relative  m-auto flex items-center justify-center max-w-1 pb-20  md:px-0 md:pt-[30px]">
-      
+   
         <Swiper
           grabCursor={true}
           effect={'creative'}
@@ -64,7 +62,7 @@ export default function Silder() {
                 right={0}
                 bottom={0}
                 >
-                 <Box position={'absolute'} py={'15%'} alignContent={'start'}  pl={'10%'} textAlign={'left'}>
+                 <Box position={'absolute'} py={'15%'} alignContent={'start'}  pl={'20%'} textAlign={'left'} maxW={'container.xl'}>
                  <Text fontSize={'16px'} color={'#4B5563'}>Starting from: $49.99</Text>
                   <Text fontSize={'36px'} color={'#4B5563'} >Exclusive collection for everyone</Text>
                   <Button bg={'#111827'} color={'#fff'}>Explore now <Image src='./Images/search-w.png' alt='s' pl={1}/></Button>
@@ -81,7 +79,7 @@ export default function Silder() {
                 left={0}
                 right={0}
                 bottom={0}>
-                <Box position={'absolute'} py={'15%'} pl={'60%'} textAlign={'right'}>
+                <Box position={'absolute'} py={'15%'} pl={'55%'} textAlign={'right'}>
                  <Text fontSize={'16px'} color={'#4B5563'}>Starting from: $49.99</Text>
                   <Text fontSize={'36px'} color={'#4B5563'} >Exclusive collection for everyone</Text>
                   <Button bg={'#111827'}  color={'#fff'}>Explore now <Image src='./Images/search-w.png' alt='s' pl={1}/></Button>
@@ -89,11 +87,7 @@ export default function Silder() {
                   <Image alt="slider1"  w={'full'}  h={'full'}  bgPosition={'object-cover'} src="./Images/hero1.png" className=""/>
                 </Box>
             </SwiperSlide>
-         
-        
         </Swiper>
-    
-      </div>
     </>
   );
 }

@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <Box bg="#111827" color="white" py={4}>
     
-      <Flex  maxW='container.lg' mx="auto" justify="space-between" align="center">
+      <Flex  maxW='container.xl' mx="auto" justify="space-between" align="center">
         <Box >
             <Heading fontSize={{ base: '14px', sm:'24px',md: '34px', lg: '34px' }} >
              NEXTON

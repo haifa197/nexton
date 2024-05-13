@@ -5,7 +5,7 @@ const Footer = () => {
   return (
  <>
     <Box className='footer' bg="#111827" color="white">
-      <Container as={Stack} maxW={'container.lg'} py={10}>
+      <Container as={Stack} maxW={'container.xl'} py={10}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
           <Stack align={'flex-start'}>
             <Text>Company</Text>
@@ -44,7 +44,7 @@ const Footer = () => {
         >
         <Container
           as={Stack}
-          maxW={'6xl'}
+          maxW={'container.xl'}
           py={4}
           direction={{ base: 'column', md: 'row' }}
           spacing={4}
