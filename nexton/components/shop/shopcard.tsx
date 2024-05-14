@@ -2,28 +2,24 @@
 import React, { useRef, useState } from "react";
 import { Image, Text, Box, HStack, Flex, Stack } from '@chakra-ui/react';
 
-export default function Cards() {
+export default function ShopCard() {
 
     return (
         <>
-            <Flex  flexWrap={"wrap"}
-             justifyContent={{ base: "center",  md: "justify-content-between",xxl: "justify-content-between" }}
+            <Flex
+             flexWrap={"wrap"}
              alignItems={{ base: "center", lg: "start" }}
-             gap={4}
+             gap={3}
              flexDirection={{ base: "column", lg: "row" }}
              w={"full"}
-             position={"relative"}>
+             position={"relative"}
+             my={10}>
                 <Box mx={1}>
-                <HStack bg={'#fff'} borderRadius={ 16} position={'absolute'} p={1} m={1} mr={'210px'}>
-                    <Image src="./Images/discount.svg" alt="shopbag"/> 
-                    <Text fontSize={10} textAlign={'center'} pr={2}>50% Discount</Text>
-                </HStack>
-                  <Box bg={'#fff'} borderRadius={'50%'} position={'absolute'} p={1} m={1} ml={'210px'}>
+                  <Image src="./Images/image1.png" alt="product" borderRadius={15} w={'260px'} h={'310px'}/>
+                  <HStack>
+                    <Box bg={'#fff'} borderRadius={'50%'} position={'absolute'} top={'0%'} p={1} m={1} ml={'230px'}>
                     <Image src="./Images/shopingbag.svg" alt="shopbag"/>
                   </Box>
-                  <Image src="./Images/image.png" alt="product" borderRadius={15} w={'280px'} h={'280px'}/>
-                  <HStack>
-                    
                     <Text as={'b'} fontSize={12} >Black Automatic Watch</Text>
                     <Text as={'b'} fontSize={12}>$169.99</Text>
                   </HStack>
@@ -38,12 +34,11 @@ export default function Cards() {
                 </Box>
 
                 <Box mx={1}>
-                    <Box bg={'#fff'} borderRadius={'50%'} position={'absolute'} p={1} m={1} ml={'210px'}>
+                  <Image src="./Images/image2.png" alt="product" borderRadius={15} w={'260px'} h={'310px'}/>
+                  <HStack>
+                    <Box bg={'#fff'} borderRadius={'50%'} position={'absolute'} top={'0%'} p={1} m={1} ml={'230px'}>
                     <Image src="./Images/shopingbag.svg" alt="shopbag"/>
                   </Box>
-                  <Image src="./Images/image1.png" alt="product" borderRadius={15} w={'280px'} h={'280px'}/>
-                  <HStack>
-                    
                     <Text as={'b'} fontSize={12} >Black Automatic Watch</Text>
                     <Text as={'b'} fontSize={12}>$169.99</Text>
                   </HStack>
@@ -58,12 +53,29 @@ export default function Cards() {
                 </Box>
 
                 <Box mx={1}>
-                    <Box bg={'#fff'} borderRadius={'50%'} position={'absolute'} p={1} m={1} ml={'210px'}>
+                  <Image src="./Images/image4.png" alt="product" borderRadius={15} w={'260px'} h={'310px'}/>
+                  <HStack>
+                    <Box bg={'#fff'} borderRadius={'50%'} position={'absolute'} top={'0%'} p={1} m={1} ml={'230px'}>
                     <Image src="./Images/shopingbag.svg" alt="shopbag"/>
                   </Box>
-                  <Image src="./Images/image2.png" alt="product" borderRadius={15} w={'280px'} h={'280px'}/>
+                    <Text as={'b'} fontSize={12} >Black Automatic Watch</Text>
+                    <Text as={'b'} fontSize={12}>$169.99</Text>
+                  </HStack>
                   <HStack>
-                    
+                    <Text fontSize={10} >Accessories</Text>
+                    <Text as={'del'} fontSize={10} justifyContent={'end'}>$199.99</Text>
+                  </HStack>
+                  <HStack>
+                    <Image src="./Images/star.png" alt="startreting"/>
+                    <Text fontSize={10} pt={1}>4.5 (98)</Text>
+                  </HStack>
+                </Box>
+                <Box mx={1}>
+                  <Image src="./Images/image1.png" alt="product" borderRadius={15} w={'260px'} h={'310px'}/>
+                  <HStack>
+                    <Box bg={'#fff'} borderRadius={'50%'} position={'absolute'} top={'51%'} p={1} m={1} ml={'230px'}>
+                    <Image src="./Images/shopingbag.svg" alt="shopbag"/>
+                  </Box>
                     <Text as={'b'} fontSize={12} >Black Automatic Watch</Text>
                     <Text as={'b'} fontSize={12}>$169.99</Text>
                   </HStack>
@@ -78,12 +90,11 @@ export default function Cards() {
                 </Box>
 
                 <Box mx={1}>
-                    <Box bg={'#fff'} borderRadius={'50%'} position={'absolute'} p={1} m={1} ml={'210px'}>
+                  <Image src="./Images/image2.png" alt="product" borderRadius={15} w={'260px'} h={'310px'}/>
+                  <HStack>
+                    <Box bg={'#fff'} borderRadius={'50%'} position={'absolute'} top={'51%'} p={1} m={1} ml={'230px'}>
                     <Image src="./Images/shopingbag.svg" alt="shopbag"/>
                   </Box>
-                  <Image src="./Images/image4.png" alt="product" borderRadius={15} w={'280px'} h={'280px'}/>
-                  <HStack>
-                    
                     <Text as={'b'} fontSize={12} >Black Automatic Watch</Text>
                     <Text as={'b'} fontSize={12}>$169.99</Text>
                   </HStack>
@@ -96,7 +107,25 @@ export default function Cards() {
                     <Text fontSize={10} pt={1}>4.5 (98)</Text>
                   </HStack>
                 </Box>
-                
+
+                <Box mx={1}>
+                  <Image src="./Images/image4.png" alt="product" borderRadius={15} w={'260px'} h={'310px'}/>
+                  <HStack>
+                    <Box bg={'#fff'} borderRadius={'50%'} position={'absolute'} top={'51%'} p={1} m={1} ml={'230px'}>
+                    <Image src="./Images/shopingbag.svg" alt="shopbag"/>
+                  </Box>
+                    <Text as={'b'} fontSize={12} >Black Automatic Watch</Text>
+                    <Text as={'b'} fontSize={12}>$169.99</Text>
+                  </HStack>
+                  <HStack>
+                    <Text fontSize={10} >Accessories</Text>
+                    <Text as={'del'} fontSize={10} justifyContent={'end'}>$199.99</Text>
+                  </HStack>
+                  <HStack>
+                    <Image src="./Images/star.png" alt="startreting"/>
+                    <Text fontSize={10} pt={1}>4.5 (98)</Text>
+                  </HStack>
+                </Box>
             </Flex>
         </>
     )
