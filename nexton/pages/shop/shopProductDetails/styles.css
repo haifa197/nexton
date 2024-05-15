@@ -1,0 +1,34 @@
+
+
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .mrg .swiper-slide {
+   margin-bottom: 30%;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .img-size .swiper-slide img {
+    width: 90px;
+    height: 110px;
+    border-radius: 20px;
+  }
+
+  .img-size-big .swiper-slide img {
+    border-radius: 20px;
+  }

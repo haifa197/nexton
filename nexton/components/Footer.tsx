@@ -54,10 +54,10 @@ const Footer = () => {
         Nexton eCommerce. &copy; {new Date().getFullYear()} 
         </Text>
           <Stack direction={'row'} spacing={6}>
-           <Image src='./Images/Clip.png' alt='visa'/>
-            <Image src='./Images/paypal.png' alt='paypal'/>
-            <Image src='./Images/stripe.png' alt='stripe'/>
-            <Image src='./Images/verisign.png' alt='verisign'/>
+           <Image src='../Images/Clip.png' alt='visa'/>
+            <Image src='../Images/paypal.png' alt='paypal'/>
+            <Image src='../Images/stripe.png' alt='stripe'/>
+            <Image src='../Images/verisign.png' alt='verisign'/>
           </Stack>
         </Container>
       </Box>

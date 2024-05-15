@@ -15,7 +15,7 @@ const Header = () => {
        <Box >
        <InputGroup size='md'>
        <InputLeftElement width='3rem'>
-        <Image src='./Images/search.svg' alt='s'/>
+        <Image src='../Images/search.svg' alt='s'/>
       </InputLeftElement>
       <Input
         pr='4.5rem'
@@ -32,8 +32,8 @@ const Header = () => {
     </InputGroup>
         </Box>
         <HStack>
-          <Link><Image src='./Images/user-btn.svg' alt='user' boxSize={{ base:5, md:7}}/></Link>
-          <Link><Image src='./Images/cart-btn.svg' alt='cart' boxSize={{ base:5, md:7 }} /></Link>
+          <Link><Image src='../Images/user-btn.svg' alt='user' boxSize={{ base:5, md:7}}/></Link>
+          <Link><Image src='../Images/cart-btn.svg' alt='cart' boxSize={{ base:5, md:7 }} /></Link>
         </HStack>
       </Flex>
     </Box>
