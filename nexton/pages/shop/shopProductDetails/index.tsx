@@ -120,7 +120,7 @@ const input = getInputProps()
             </Swiper>
             </Box>
           </HStack>
-          <Divider mt={24}/>
+          <Divider mt={18}/>
         </Box>
         <Box w={'50%'}>
           <Card maxW='sm'>
@@ -143,20 +143,20 @@ const input = getInputProps()
                 <Text >Size:</Text>
                 <Text >S</Text>
               </HStack>
-                <ButtonGroup variant='outline' spacing='6'>
-                  <Button fontSize={12} >S</Button>
-                  <Button fontSize={12} >M</Button>
-                  <Button fontSize={12} >L</Button>
-                  <Button fontSize={12} >XL</Button>
-                  <Button fontSize={12} >2XL</Button>
+                <ButtonGroup variant='outline' spacing='4'>
+                  <Button fontSize={12} size='sm' >S</Button>
+                  <Button fontSize={12} size='sm' >M</Button>
+                  <Button fontSize={12} size='sm' >L</Button>
+                  <Button fontSize={12} size='sm' >XL</Button>
+                  <Button fontSize={12} size='sm' >2XL</Button>
                 </ButtonGroup>
                 <HStack spacing={28}>
-                  <HStack maxW='142px' border={'1px soild'} borderColor={'grey'}>
-                  <Button blockSize={3} borderRadius={20}  fontSize={12}  {...inc}>+</Button>
-                  <Input color={'#000'} fontSize={10} {...input} />
-                  <Button borderRadius={50}  fontSize={12}  {...dec}>-</Button>
+                  <HStack maxW='100px' h={8} px={1} borderRadius={20} bgColor={'#F8F8F8'}>
+                  <Button borderRadius={20} bgColor={'#FFF'}  fontSize={12} size='xs'  {...inc}>+</Button>
+                  <Input color={'#000'} border={'none'} size='xs' {...input} />
+                  <Button borderRadius={20} bgColor={'#FFF'}  fontSize={12} size='xs'  {...dec}>-</Button>
                   </HStack>
-                  <Button bg={'#111827'} borderRadius={20} fontSize={12} color={'#fff'}>Add to cart<Image src='../Images/shopingbag.svg' alt='shopingbag' pl={1}/></Button>
+                  <Button bg={'#111827'} borderRadius={20} fontSize={12} size='sm' color={'#fff'}>Add to cart<Image src='../Images/shopingbag.svg' alt='shopingbag' pl={1}/></Button>
 
               </HStack>
                 <HStack spacing={60}>
@@ -195,6 +195,24 @@ const input = getInputProps()
         </Box>
         <Box>
           <Text as={'b'} fontSize={26} color={'#000'}>Keywords</Text>
+          <HStack>
+            <HStack border={'1px solid'} borderRadius={16} p={1}>
+               <Image src="../Images/stars.svg" alt="startreting"/>
+              <Text fontSize={10} pr={1}>men's fashion</Text>
+            </HStack>
+            <HStack border={'1px solid'} borderRadius={16} p={1}>
+               <Image src="../Images/stars.svg" alt="startreting"/>
+              <Text fontSize={10} pr={1}>men's fashion</Text>
+            </HStack>
+            <HStack border={'1px solid'} borderRadius={16} p={1}>
+               <Image src="../Images/stars.svg" alt="startreting"/>
+              <Text fontSize={10} pr={1}>men's fashion</Text>
+            </HStack>
+            <HStack border={'1px solid'} borderRadius={16} p={1}>
+               <Image src="../Images/stars.svg" alt="startreting"/>
+              <Text fontSize={10} pr={1}>men's fashion</Text>
+            </HStack>
+          </HStack>
         </Box>
       
       </Stack>
