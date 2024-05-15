@@ -80,9 +80,8 @@ const input = getInputProps()
           
             <Box h={'450px'}w={'65%'} justifyItems={'end'}>
             <Swiper
-            direction={'vertical'}
             spaceBetween={10}
-            navigation={true}
+            navigation={false}
             thumbs={{ swiper: thumbsSwiper }}
             modules={[FreeMode, Navigation, Thumbs]}
             className="mySwiper2  img-size-big"
