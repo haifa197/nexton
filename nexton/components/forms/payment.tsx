@@ -22,11 +22,11 @@ export default function PaymentForm() {
                             <Stack spacing={4}>
                                 <FormControl id="email" isRequired>
                                     <FormLabel>Email address</FormLabel>
-                                    <Input type="email" />
+                                    <Input type="text" />
                                 </FormControl>
                                 <FormControl id="email" isRequired>
                                     <FormLabel>Email address</FormLabel>
-                                    <Input type="email" />
+                                    <Input type="text" />
                                 </FormControl>
                                 <HStack>
                                     <Box w={'70%'}>

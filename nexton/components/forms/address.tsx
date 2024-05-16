@@ -50,7 +50,7 @@ export default function AddressForm() {
                             </HStack>
                             <FormControl id="email" isRequired>
                             <FormLabel>Email address</FormLabel>
-                            <Input type="email" />
+                            <Input type="text" />
                             </FormControl>
                             <HStack>
                             <Box>
