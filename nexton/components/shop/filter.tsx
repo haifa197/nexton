@@ -49,6 +49,7 @@ export default function FilterShop() {
                         $
                         </InputRightElement>
                         <Input  
+                        size={'sm'}
                             borderRadius={'20px'}
                             border={'solid 1px'}
                             borderColor={'#4B5563'}
@@ -62,7 +63,8 @@ export default function FilterShop() {
                         <InputRightElement width='2rem'>
                         $
                         </InputRightElement>
-                    <Input  
+                    <Input 
+                      size={'sm'} 
                         borderRadius={'20px'}
                         border={'solid 1px'}
                         borderColor={'#4B5563'}
