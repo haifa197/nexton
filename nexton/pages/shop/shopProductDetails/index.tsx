@@ -80,9 +80,8 @@ const input = getInputProps()
           
             <Box h={'450px'}w={'65%'} justifyItems={'end'}>
             <Swiper
-            direction={'vertical'}
             spaceBetween={10}
-            navigation={true}
+            navigation={false}
             thumbs={{ swiper: thumbsSwiper }}
             modules={[FreeMode, Navigation, Thumbs]}
             className="mySwiper2  img-size-big"
@@ -152,11 +151,11 @@ const input = getInputProps()
                 </ButtonGroup>
                 <HStack spacing={28}>
                   <HStack maxW='100px' h={8} px={1} borderRadius={20} bgColor={'#F8F8F8'}>
-                  <Button borderRadius={20} bgColor={'#FFF'}  fontSize={12} size='xs'  {...inc}>+</Button>
-                  <Input color={'#000'} border={'none'} size='xs' {...input} />
-                  <Button borderRadius={20} bgColor={'#FFF'}  fontSize={12} size='xs'  {...dec}>-</Button>
+                    <Button borderRadius={20} bgColor={'#FFF'}  fontSize={12} size='xs'  {...inc}>+</Button>
+                    <Input color={'#000'} border={'none'} size='xs' {...input} />
+                    <Button borderRadius={20} bgColor={'#FFF'}  fontSize={12} size='xs'  {...dec}>-</Button>
                   </HStack>
-                  <Button bg={'#111827'} borderRadius={20} fontSize={12} size='sm' color={'#fff'}>Add to cart<Image src='../Images/shopingbag.svg' alt='shopingbag' pl={1}/></Button>
+                  <Button bg={'#111827'} borderRadius={20} fontSize={12} size='sm' color={'#fff'}><Image src='../Images/shopingbag.svg' alt='shopingbag' pl={1}/>Add to cart</Button>
 
               </HStack>
                 <HStack spacing={60}>
