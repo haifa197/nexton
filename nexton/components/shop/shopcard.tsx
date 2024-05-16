@@ -21,11 +21,11 @@ export default function ShopCard() {
                     <Image src="./Images/shopingbag.svg" alt="shopbag"/>
                   </Box>
                   </HStack>
-                  <HStack spacing={20}>
+                  <HStack spacing={20} justifyContent={'space-between'}>
                     <Text as={'b'} fontSize={12} >Black Automatic Watch</Text>
                     <Text as={'b'} fontSize={12}>$169.99</Text>
                   </HStack>
-                  <HStack spacing={40}>
+                  <HStack spacing={40} justifyContent={'space-between'}>
                     <Text fontSize={10} >Accessories</Text>
                     <Text as={'del'} fontSize={10} justifyContent={'end'}>$199.99</Text>
                   </HStack>
@@ -42,11 +42,11 @@ export default function ShopCard() {
                     <Image src="./Images/shopingbag.svg" alt="shopbag"/>
                   </Box>
                   </HStack>
-                  <HStack spacing={20}>
+                  <HStack spacing={20} justifyContent={'space-between'}>
                     <Text as={'b'} fontSize={12} >Black Automatic Watch</Text>
                     <Text as={'b'} fontSize={12}>$169.99</Text>
                   </HStack>
-                  <HStack spacing={40}>
+                  <HStack spacing={40} justifyContent={'space-between'}>
                     <Text fontSize={10} >Accessories</Text>
                     <Text as={'del'} fontSize={10} justifyContent={'end'}>$199.99</Text>
                   </HStack>
@@ -63,11 +63,11 @@ export default function ShopCard() {
                     <Image src="./Images/shopingbag.svg" alt="shopbag"/>
                   </Box>
                   </HStack>
-                  <HStack spacing={20}>
+                  <HStack spacing={20} justifyContent={'space-between'}>
                     <Text as={'b'} fontSize={12} >Black Automatic Watch</Text>
                     <Text as={'b'} fontSize={12}>$169.99</Text>
                   </HStack>
-                  <HStack spacing={40}>
+                  <HStack spacing={40} justifyContent={'space-between'}>
                     <Text fontSize={10} >Accessories</Text>
                     <Text as={'del'} fontSize={10} justifyContent={'end'}>$199.99</Text>
                   </HStack>
@@ -83,11 +83,11 @@ export default function ShopCard() {
                     <Image src="./Images/shopingbag.svg" alt="shopbag"/>
                   </Box>
                   </HStack>
-                  <HStack spacing={20}>
+                  <HStack spacing={20} justifyContent={'space-between'}>
                     <Text as={'b'} fontSize={12} >Black Automatic Watch</Text>
                     <Text as={'b'} fontSize={12}>$169.99</Text>
                   </HStack>
-                  <HStack spacing={40}>
+                  <HStack spacing={40} justifyContent={'space-between'}>
                     <Text fontSize={10} >Accessories</Text>
                     <Text as={'del'} fontSize={10} justifyContent={'end'}>$199.99</Text>
                   </HStack>
@@ -104,11 +104,11 @@ export default function ShopCard() {
                     <Image src="./Images/shopingbag.svg" alt="shopbag"/>
                   </Box>
                   </HStack>
-                  <HStack spacing={20}>
+                  <HStack spacing={20} justifyContent={'space-between'}>
                     <Text as={'b'} fontSize={12} >Black Automatic Watch</Text>
                     <Text as={'b'} fontSize={12}>$169.99</Text>
                   </HStack>
-                  <HStack spacing={40}>
+                  <HStack spacing={40} justifyContent={'space-between'}>
                     <Text fontSize={10} >Accessories</Text>
                     <Text as={'del'} fontSize={10} justifyContent={'end'}>$199.99</Text>
                   </HStack>
@@ -125,11 +125,11 @@ export default function ShopCard() {
                     <Image src="./Images/shopingbag.svg" alt="shopbag"/>
                   </Box>
                   </HStack>
-                  <HStack spacing={20}>
+                  <HStack spacing={20} justifyContent={'space-between'}>
                     <Text as={'b'} fontSize={12} >Black Automatic Watch</Text>
                     <Text as={'b'} fontSize={12}>$169.99</Text>
                   </HStack>
-                  <HStack spacing={40}>
+                  <HStack spacing={40} justifyContent={'space-between'}>
                     <Text fontSize={10} >Accessories</Text>
                     <Text as={'del'} fontSize={10} justifyContent={'end'}>$199.99</Text>
                   </HStack>

@@ -12,7 +12,9 @@ export default function Cards() {
              gap={4}
              flexDirection={{ base: "column", lg: "row" }}
              w={"full"}
-             position={"relative"}>
+             position={"relative"}
+             mt={5}
+             >
                 <Box>
                 <Stack spacing={'10%'} direction='row'>
                     <Box>
@@ -27,11 +29,11 @@ export default function Cards() {
                 </Stack>
                 
                   <Image src="../Images/image.png" alt="product" borderRadius={15} w={'280px'} h={'300px'}/>
-                  <HStack spacing={24}>
+                  <HStack justifyContent={'space-between'} spacing={24}>
                     <Text as={'b'} fontSize={12} >Black Automatic Watch</Text>
                     <Text as={'b'} fontSize={12}>$169.99</Text>
                   </HStack>
-                  <HStack spacing={44}>
+                  <HStack justifyContent={'space-between'} spacing={44}>
                     <Text fontSize={10} >Accessories</Text>
                     <Text as={'del'} fontSize={10} justifyContent={'end'}>$199.99</Text>
                   </HStack>
@@ -46,11 +48,11 @@ export default function Cards() {
                     <Image src="../Images/shopingbag.svg" alt="shopbag"/>
                   </Box>
                   <Image src="../Images/image1.png" alt="product" borderRadius={15} w={'280px'} h={'300px'}/>
-                  <HStack spacing={24}>
+                  <HStack justifyContent={'space-between'} spacing={24}>
                     <Text as={'b'} fontSize={12} >Black Automatic Watch</Text>
                     <Text as={'b'} fontSize={12}>$169.99</Text>
                   </HStack>
-                  <HStack spacing={44}>
+                  <HStack justifyContent={'space-between'} spacing={44}>
                     <Text fontSize={10} >Accessories</Text>
                     <Text as={'del'} fontSize={10} justifyContent={'end'}>$199.99</Text>
                   </HStack>
@@ -65,11 +67,11 @@ export default function Cards() {
                     <Image src="../Images/shopingbag.svg" alt="shopbag"/>
                   </Box>
                   <Image src="../Images/image2.png" alt="product" borderRadius={15} w={'280px'} h={'300px'}/>
-                  <HStack spacing={24}>
+                  <HStack justifyContent={'space-between'} spacing={24}>
                     <Text as={'b'} fontSize={12} >Black Automatic Watch</Text>
                     <Text as={'b'} fontSize={12}>$169.99</Text>
                   </HStack>
-                  <HStack spacing={44}>
+                  <HStack justifyContent={'space-between'} spacing={44}>
                     <Text fontSize={10} >Accessories</Text>
                     <Text as={'del'} fontSize={10} justifyContent={'end'}>$199.99</Text>
                   </HStack>
@@ -84,11 +86,11 @@ export default function Cards() {
                     <Image src="../Images/shopingbag.svg" alt="shopbag"/>
                   </Box>
                   <Image src="../Images/image4.png" alt="product" borderRadius={15} w={'280px'} h={'300px'}/>
-                  <HStack spacing={24}>
+                  <HStack justifyContent={'space-between'} spacing={24}>
                     <Text as={'b'} fontSize={12} >Black Automatic Watch</Text>
                     <Text as={'b'} fontSize={12}>$169.99</Text>
                   </HStack>
-                  <HStack spacing={44}>
+                  <HStack justifyContent={'space-between'} spacing={44}>
                     <Text fontSize={10} >Accessories</Text>
                     <Text as={'del'} fontSize={10} justifyContent={'end'}>$199.99</Text>
                   </HStack>
