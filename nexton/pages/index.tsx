@@ -4,7 +4,39 @@ import Services from '@/components/home/services';
 import Category from '@/components/home/category';
 import Cards from '@/components/product/cards';
 import Adds from '@/components/home/adds';
+
+import { useEffect, useState } from 'react';
+
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+}
+
 const Home = () => {
+
+  const [users, setUsers] = useState<User[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const usersResponse = await fetch('/api/users');
+      const usersData = await usersResponse.json();
+      setUsers(usersData);
+
+      const productsResponse = await fetch('/api/products');
+      const productsData = await productsResponse.json();
+      setProducts(productsData);
+    }
+
+    fetchData();
+  }, []);
   return (
     <>
     <Slider/>

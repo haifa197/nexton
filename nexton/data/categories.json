@@ -1,0 +1,28 @@
+[
+    {
+      "id": 1,
+      "name": "women clothing",
+      "status": "1"
+    },
+    {
+      "id": 2,
+      "name": "men clothing",
+      "status": "1"
+    },
+    {
+        "id": 3,
+        "name": "children clothing",
+        "status": "1"
+    },
+    {
+        "id": 4,
+        "name": "jewelery",
+        "status": "1"
+    },
+    {
+        "id": 5,
+        "name": "electronics",
+        "status": "0"
+    }
+  ]
+  
