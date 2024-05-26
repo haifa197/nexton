@@ -11,7 +11,32 @@ import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 import { FreeMode, Mousewheel, Navigation, Pagination, Thumbs } from 'swiper/modules';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+
+interface IProduct {
+  id: number;
+  price: number;
+  title: string;
+  category: number;
+  description: string;
+  status: boolean;
+  quantity: number;
+  type: string;
+  image: string;
+}
+
+interface ICategory {
+  id: number;
+  name: string;
+  status: boolean;
+  discount: boolean;
+  endR: number;
+}
+interface ProductWithCategory {
+  product: IProduct;
+  category: ICategory;
+}
 
 const shopProductDetails = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState('');
@@ -27,6 +52,51 @@ const shopProductDetails = () => {
 const inc = getIncrementButtonProps()
 const dec = getDecrementButtonProps()
 const input = getInputProps()
+
+const [products, setProducts] = useState<IProduct[]>([]);
+const [categories, setCategories] = useState<ICategory[]>([]);
+const [recommendations, setRecommendations] = useState<ProductWithCategory[]>([]);
+
+
+useEffect(() => {
+  async function fetchData() {
+    const productsResponse = await fetch('/api/products');
+    const productsData: IProduct[] = await productsResponse.json();
+    setProducts(productsData);
+
+    const categoriesResponse = await fetch('/api/categories');
+    const categoriesData: ICategory[] = await categoriesResponse.json();
+    setCategories(categoriesData);
+
+    const randomProducts = getRandomProducts(productsData, categoriesData);
+    setRecommendations(randomProducts);
+  }
+
+  fetchData();
+}, []);
+// recommendations Function
+const getRandomProductFromCategory = (products: IProduct[], categoryId: number): IProduct | undefined => {
+  const productsInCategory = products.filter(product => product.category === categoryId);
+  if (productsInCategory.length > 0) {
+    const randomIndex = Math.floor(Math.random() * productsInCategory.length);
+    return productsInCategory[randomIndex];
+  }
+  return undefined;
+};
+
+const getRandomProducts = (products: IProduct[], categories: ICategory[]): ProductWithCategory[] => {
+  const activeCategories = categories.filter(category => category.status);
+  let randomProducts: ProductWithCategory[] = [];
+
+  activeCategories.forEach(category => {
+    const randomProduct = getRandomProductFromCategory(products, category.id);
+    if (randomProduct) {
+      randomProducts.push({ product: randomProduct, category });
+    }
+  });
+
+  return randomProducts;
+};
   return (
     <>
   
@@ -219,7 +289,7 @@ const input = getInputProps()
         <HStack>
           <Text as={'b'} fontSize={36} color={'#000'}>Recommended products</Text>
         </HStack>
-        <Cards/>
+        <Cards products={[recommendations]}/>
       </Box>
     </Container>
     </>
