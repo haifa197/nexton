@@ -60,7 +60,7 @@ const Cards = ({ products }: CardsProps) => {
                     </Box>
                 </Stack>
                 
-                  <Image src={product.image} alt="product" borderRadius={15} w={'280px'} h={'300px'}/>
+                  <Image src={product.image} alt="product" borderRadius={15} w={'280px'} h={'320px'}/>
                   <HStack justifyContent={'space-between'} spacing={24}>
                     <Text as={'b'} fontSize={12} >{product.title}  </Text>
                     <Text as={'b'} fontSize={12}>${product.price}</Text>

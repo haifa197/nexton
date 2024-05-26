@@ -12,6 +12,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 interface IProduct {
   id: number;
@@ -56,6 +57,9 @@ const shopProductDetails = () => {
   const [categories, setCategories] = useState<ICategory[]>([]);
   const [recommendations, setRecommendations] = useState<ProductWithCategory[]>([]);
 
+  const router = useRouter();
+  const { id } = router.query;
+  
   useEffect(() => {
     async function fetchData() {
       const productsResponse = await fetch('/api/products');
