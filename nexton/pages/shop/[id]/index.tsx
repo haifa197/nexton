@@ -10,9 +10,42 @@ import "./styles.css";
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
-import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+import {  Navigation, Thumbs } from 'swiper/modules';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+
+interface ISizeDetail {
+  name: string;
+  quantity: number;
+  description: string;
+}
+
+interface ISize {
+  s: ISizeDetail[];
+  m: ISizeDetail[];
+  l: ISizeDetail[];
+  xl: ISizeDetail[];
+  '2xl': ISizeDetail[];
+  '3xl': ISizeDetail[];
+}
+
+interface IImage {
+  id: string;
+  img: string;
+}
+
+interface IProductImages {
+  img: string | undefined;
+  image: IImage[];
+  image1: IImage[];
+  image2: IImage[];
+  image3: IImage[];
+  image4: IImage[];
+  image5: IImage[];
+  image6: IImage[];
+  image7: IImage[];
+
+}
 
 interface IProduct {
   id: number;
@@ -24,6 +57,8 @@ interface IProduct {
   quantity: number;
   type: string;
   image: string;
+  size: ISize[];
+  productImages: IProductImages[];
 }
 
 interface ICategory {
@@ -40,6 +75,12 @@ interface ProductWithCategory {
 }
 
 const shopProductDetails = () => {
+  const [product, setProduct] = useState<IProduct | null>(null);
+  const [recommendations, setRecommendations] = useState<ProductWithCategory[]>([]);
+  const router = useRouter();
+  const { id } = router.query;
+  console.log(id)
+  
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } = useNumberInput({
     step: 1,
@@ -53,28 +94,37 @@ const shopProductDetails = () => {
   const dec = getDecrementButtonProps();
   const input = getInputProps();
 
-  const [products, setProducts] = useState<IProduct[]>([]);
-  const [categories, setCategories] = useState<ICategory[]>([]);
-  const [recommendations, setRecommendations] = useState<ProductWithCategory[]>([]);
-
-  const router = useRouter();
-  const { id } = router.query;
-  
   useEffect(() => {
-    async function fetchData() {
-      const productsResponse = await fetch('/api/products');
-      const productsData: IProduct[] = await productsResponse.json();
-      setProducts(productsData);
+    if (id) {
+      fetch(`/api/products/${id}`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Product not found');
+          }
+          return response.json();
+        })
+        .then((data: IProduct) => setProduct(data))
+        .catch((error) => console.error('Error fetching product details:', error));
+    }
+  }, [id]);
 
-      const categoriesResponse = await fetch('/api/categories');
-      const categoriesData: ICategory[] = await categoriesResponse.json();
-      setCategories(categoriesData);
+  useEffect(() => {
+    async function fetchRecommendations() {
+      try {
+        const productsResponse = await fetch('/api/products');
+        const productsData: IProduct[] = await productsResponse.json();
 
-      const randomProducts = getRandomProducts(productsData, categoriesData);
-      setRecommendations(randomProducts);
+        const categoriesResponse = await fetch('/api/categories');
+        const categoriesData: ICategory[] = await categoriesResponse.json();
+
+        const randomProducts = getRandomProducts(productsData, categoriesData);
+        setRecommendations(randomProducts);
+      } catch (error) {
+        console.error('Error fetching recommendations:', error);
+      }
     }
 
-    fetchData();
+    fetchRecommendations();
   }, []);
 
   const getRandomProductFromCategory = (products: IProduct[], categoryId: number): IProduct | undefined => {
@@ -100,8 +150,14 @@ const shopProductDetails = () => {
     return randomProducts;
   };
 
+  if (!product) {
+    return <Text>Loading...</Text>;
+  }
+
   return (
     <Container maxW='container.xl'>
+
+      <>
       <HStack my={10} spacing={20} position={'relative'}>
         <Box w={'50%'} h={'450px'}>
           <HStack spacing={5} justifyItems={'end'}>
@@ -111,41 +167,16 @@ const shopProductDetails = () => {
                 direction={'vertical'}
                 spaceBetween={10}
                 slidesPerView={4}
-                freeMode={true}
                 watchSlidesProgress={true}
-                modules={[FreeMode, Navigation, Thumbs]}
+                modules={[ Navigation, Thumbs]}
                 className="mySwiper img-size mrg"
               >
-                <SwiperSlide>
-                  <Image src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image src="https://swiperjs.com/demos/images/nature-6.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image src="https://swiperjs.com/demos/images/nature-7.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image src="https://swiperjs.com/demos/images/nature-8.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image src="https://swiperjs.com/demos/images/nature-9.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image src="https://swiperjs.com/demos/images/nature-10.jpg" />
-                </SwiperSlide>
+               
+               {Object.values(product.productImages).flat().map((img, idx) => (
+                  <SwiperSlide key={idx}>
+                    <Image src={img.img} />
+                  </SwiperSlide>
+                ))}
               </Swiper>
             </Box>
             <Box h={'450px'} w={'65%'} justifyItems={'end'}>
@@ -153,7 +184,7 @@ const shopProductDetails = () => {
                 spaceBetween={10}
                 navigation={false}
                 thumbs={{ swiper: thumbsSwiper }}
-                modules={[FreeMode, Navigation, Thumbs]}
+                modules={[ Navigation, Thumbs]}
                 className="mySwiper2 img-size-big"
               >
                 <SwiperSlide>
@@ -279,6 +310,7 @@ const shopProductDetails = () => {
           </HStack>
         </Box>
       </Stack>
+      </>
       <Box mb={20}>
         <HStack>
           <Text as={'b'} fontSize={36} color={'#000'}>Recommended products</Text>

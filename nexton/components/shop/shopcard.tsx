@@ -62,7 +62,7 @@ export default function ShopCard() {
       position={"relative"}
       my={10}>
       {productCategories.map(({ product, category }) => (
-        <Box mx={1} key={product.id} as={Link} href={`/shop/shopProductDetails${product.id}`}>
+        <Box mx={1} key={product.id} as={Link} href={`/shop/${product.id}`}>
           <Image src={product.image} alt={product.title} borderRadius={15} w={'260px'} h={'310px'} />
           <HStack>
             <Box bg={'#fff'} borderRadius={'50%'} position={'absolute'} top={'0%'} p={1} m={1} ml={'230px'}>
