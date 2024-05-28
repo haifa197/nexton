@@ -1,18 +1,12 @@
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import { Box, Card, CardBody, Image, Container, Divider, HStack, Heading, Stack, Text, Button, Input, useNumberInput, ButtonGroup, VStack } from '@chakra-ui/react';
-import Cards from '@/components/product/cards';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import "./styles.css";
-import 'swiper/css/free-mode';
-import 'swiper/css/navigation';
-import 'swiper/css/thumbs';
-import {  Navigation, Thumbs } from 'swiper/modules';
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
 interface ISizeDetail {
   name: string;
@@ -29,22 +23,18 @@ interface ISize {
   '3xl': ISizeDetail[];
 }
 
-interface IImage {
+interface IProductImage {
   id: string;
   img: string;
 }
 
 interface IProductImages {
-  img: string | undefined;
-  image: IImage[];
-  image1: IImage[];
-  image2: IImage[];
-  image3: IImage[];
-  image4: IImage[];
-  image5: IImage[];
-  image6: IImage[];
-  image7: IImage[];
-
+  image: IProductImage[];
+  image1: IProductImage[];
+  image2: IProductImage[];
+  image3: IProductImage[];
+  image4: IProductImage[];
+  image5: IProductImage[];
 }
 
 interface IProduct {
@@ -58,29 +48,14 @@ interface IProduct {
   type: string;
   image: string;
   size: ISize[];
-  productImages: IProductImages[];
+  productImages: IProductImages;
 }
 
-interface ICategory {
-  id: number;
-  name: string;
-  status: boolean;
-  discount: boolean;
-  endR: number;
-}
-
-interface ProductWithCategory {
-  product: IProduct;
-  category: ICategory;
-}
-
-const shopProductDetails = () => {
+const ShopProductDetails = () => {
   const [product, setProduct] = useState<IProduct | null>(null);
-  const [recommendations, setRecommendations] = useState<ProductWithCategory[]>([]);
   const router = useRouter();
-  const { id } = router.query;
-  console.log(id)
-  
+  const { shopdetailsid } = router.query;
+
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } = useNumberInput({
     step: 1,
@@ -95,60 +70,13 @@ const shopProductDetails = () => {
   const input = getInputProps();
 
   useEffect(() => {
-    if (id) {
-      fetch(`/api/products/${id}`)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Product not found');
-          }
-          return response.json();
-        })
+    if (shopdetailsid) {
+      fetch(`/api/products/${shopdetailsid}`)
+        .then((response) => response.json())
         .then((data: IProduct) => setProduct(data))
         .catch((error) => console.error('Error fetching product details:', error));
     }
-  }, [id]);
-
-  useEffect(() => {
-    async function fetchRecommendations() {
-      try {
-        const productsResponse = await fetch('/api/products');
-        const productsData: IProduct[] = await productsResponse.json();
-
-        const categoriesResponse = await fetch('/api/categories');
-        const categoriesData: ICategory[] = await categoriesResponse.json();
-
-        const randomProducts = getRandomProducts(productsData, categoriesData);
-        setRecommendations(randomProducts);
-      } catch (error) {
-        console.error('Error fetching recommendations:', error);
-      }
-    }
-
-    fetchRecommendations();
-  }, []);
-
-  const getRandomProductFromCategory = (products: IProduct[], categoryId: number): IProduct | undefined => {
-    const productsInCategory = products.filter(product => product.category === categoryId);
-    if (productsInCategory.length > 0) {
-      const randomIndex = Math.floor(Math.random() * productsInCategory.length);
-      return productsInCategory[randomIndex];
-    }
-    return undefined;
-  };
-
-  const getRandomProducts = (products: IProduct[], categories: ICategory[]): ProductWithCategory[] => {
-    const activeCategories = categories.filter(category => category.status);
-    let randomProducts: ProductWithCategory[] = [];
-
-    activeCategories.forEach(category => {
-      const randomProduct = getRandomProductFromCategory(products, category.id);
-      if (randomProduct) {
-        randomProducts.push({ product: randomProduct, category });
-      }
-    });
-
-    return randomProducts;
-  };
+  }, [shopdetailsid]);
 
   if (!product) {
     return <Text>Loading...</Text>;
@@ -156,8 +84,6 @@ const shopProductDetails = () => {
 
   return (
     <Container maxW='container.xl'>
-
-      <>
       <HStack my={10} spacing={20} position={'relative'}>
         <Box w={'50%'} h={'450px'}>
           <HStack spacing={5} justifyItems={'end'}>
@@ -167,76 +93,53 @@ const shopProductDetails = () => {
                 direction={'vertical'}
                 spaceBetween={10}
                 slidesPerView={4}
+                freeMode={true}
                 watchSlidesProgress={true}
-                modules={[ Navigation, Thumbs]}
+                modules={[FreeMode, Navigation, Thumbs]}
                 className="mySwiper img-size mrg"
               >
-               
-               {Object.values(product.productImages).flat().map((img, idx) => (
+                {Object.values(product.productImages).flat().map((img, idx) => (
                   <SwiperSlide key={idx}>
                     <Image src={img.img} />
                   </SwiperSlide>
                 ))}
               </Swiper>
             </Box>
+
             <Box h={'450px'} w={'65%'} justifyItems={'end'}>
               <Swiper
                 spaceBetween={10}
                 navigation={false}
                 thumbs={{ swiper: thumbsSwiper }}
-                modules={[ Navigation, Thumbs]}
+                modules={[FreeMode, Navigation, Thumbs]}
                 className="mySwiper2 img-size-big"
               >
-                <SwiperSlide>
-                  <Image src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image src="https://swiperjs.com/demos/images/nature-6.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image src="https://swiperjs.com/demos/images/nature-7.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image src="https://swiperjs.com/demos/images/nature-8.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image src="https://swiperjs.com/demos/images/nature-9.jpg" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image src="https://swiperjs.com/demos/images/nature-10.jpg" />
-                </SwiperSlide>
+                {Object.values(product.productImages).flat().map((img, idx) => (
+                  <SwiperSlide key={idx}>
+                    <Image src={img.img} />
+                  </SwiperSlide>
+                ))}
               </Swiper>
             </Box>
           </HStack>
           <Divider mt={18} />
         </Box>
+
         <Box w={'50%'}>
           <Card maxW='sm'>
             <CardBody>
               <Stack spacing='3'>
                 <HStack spacing={40}>
                   <HStack>
-                    <Image src="../Images/star.png" alt="star rating" />
+                    <Image src="../Images/star.png" alt="startreting" />
                     <Text fontSize={10}>4.5 (98)</Text>
-                    <Text fontSize={10} as={'u'}>vvvvvghh</Text>
                   </HStack>
                   <VStack>
-                    <Heading size='md'>$56.99</Heading>
-                    <Text fontSize={10} as={'s'}>99.8</Text>
+                    <Heading size='md'>${product.price.toFixed(2)}</Heading>
+                    {product.status && <Text fontSize={10} as={'s'}>${(product.price * 1.2).toFixed(2)}</Text>}
                   </VStack>
                 </HStack>
+
                 <HStack>
                   <Text>Size:</Text>
                   <Text>S</Text>
@@ -255,70 +158,44 @@ const shopProductDetails = () => {
                     <Button borderRadius={20} bgColor={'#FFF'} fontSize={12} size='xs' {...dec}>-</Button>
                   </HStack>
                   <Button bg={'#111827'} borderRadius={20} fontSize={12} size='sm' color={'#fff'}>
-                    <Image src='../Images/shopingbag.svg' alt='shopping bag' pl={1} />Add to cart
+                    <Image src='../Images/shopingbag.svg' alt='shopingbag' pl={1} />
+                    Add to cart
                   </Button>
                 </HStack>
                 <HStack spacing={60}>
                   <Text>Total:</Text>
-                  <Text>$56.99</Text>
+                  <Text>${product.price.toFixed(2)}</Text>
                 </HStack>
                 <Divider borderColor={'#E5E7EB'} my={5} />
                 <HStack spacing={60}>
                   <Text as={'b'}>Total:</Text>
-                  <Text as={'b'}>$56.99</Text>
+                  <Text as={'b'}>${product.price.toFixed(2)}</Text>
                 </HStack>
               </Stack>
             </CardBody>
           </Card>
         </Box>
       </HStack>
+
+      {/* Recommended products section */}
       <Stack my={16} position={'relative'}>
         <Box>
           <Text as={'b'} fontSize={26} color={'#000'}>Recommended products</Text>
-          <Text fontSize={14} color={'#000'}>Recommended products</Text>
-        </Box>
-        <Box>
-          <Text as={'b'} fontSize={26} color={'#000'}>Recommended products</Text>
-          <Text fontSize={14} color={'#000'}>Recommended: products</Text>
-          <Text fontSize={14} color={'#000'}>Recommended: products</Text>
-        </Box>
-        <Box>
-          <Text as={'b'} fontSize={26} color={'#000'}>Recommended products</Text>
-          <Text fontSize={14} color={'#000'}>Recommended: 0</Text>
-          <Text fontSize={14} color={'#000'}>Recommended: -</Text>
-          <Text fontSize={14} color={'#000'}>Recommended: -</Text>
-        </Box>
-        <Box>
-          <Text as={'b'} fontSize={26} color={'#000'}>Keywords</Text>
-          <HStack>
-            <HStack border={'1px solid'} borderRadius={16} p={1}>
-              <Image src="../Images/stars.svg" alt="star rating" />
-              <Text fontSize={10} pr={1}>men's fashion</Text>
-            </HStack>
-            <HStack border={'1px solid'} borderRadius={16} p={1}>
-              <Image src="../Images/stars.svg" alt="star rating" />
-              <Text fontSize={10} pr={1}>men's fashion</Text>
-            </HStack>
-            <HStack border={'1px solid'} borderRadius={16} p={1}>
-              <Image src="../Images/stars.svg" alt="star rating" />
-              <Text fontSize={10} pr={1}>men's fashion</Text>
-            </HStack>
-            <HStack border={'1px solid'} borderRadius={16} p={1}>
-              <Image src="../Images/stars.svg" alt="star rating" />
-              <Text fontSize={10} pr={1}>men's fashion</Text>
-            </HStack>
-          </HStack>
+          {/* Map over recommended products */}
+          {/* Example of a recommended product */}
+          {/* Placeholder data for recommendations, replace with real data as needed */}
+          {[
+            { product: { id: 12, title: 'Another Product' } },
+            { product: { id: 13, title: 'Yet Another Product' } },
+          ].map((rec) => (
+            <Box key={rec.product.id}>
+              <Text>{rec.product.title}</Text>
+            </Box>
+          ))}
         </Box>
       </Stack>
-      </>
-      <Box mb={20}>
-        <HStack>
-          <Text as={'b'} fontSize={36} color={'#000'}>Recommended products</Text>
-        </HStack>
-        <Cards products={recommendations} />
-      </Box>
     </Container>
   );
 };
 
-export default shopProductDetails;
+export default ShopProductDetails;
