@@ -242,14 +242,14 @@ const ShopProductDetails = () => {
           </Box>
           <Box>
             <Text as={'b'} fontSize={26} color={'#000'}>Recommended products</Text>
-            <Text fontSize={14} color={'#000'}>Recommended: products</Text>
-            <Text fontSize={14} color={'#000'}>Recommended: products</Text>
+            <Text fontSize={14} color={'#000'}>Recommended{': '}products</Text>
+            <Text fontSize={14} color={'#000'}>Recommended{': '}products</Text>
           </Box>
           <Box>
             <Text as={'b'} fontSize={26} color={'#000'}>Recommended products</Text>
-            <Text fontSize={14} color={'#000'}>Recommended: 0</Text>
-            <Text fontSize={14} color={'#000'}>Recommended: -</Text>
-            <Text fontSize={14} color={'#000'}>Recommended: -</Text>
+            <Text fontSize={14} color={'#000'}>Recommended{': '}0</Text>
+            <Text fontSize={14} color={'#000'}>Recommended{': '}-</Text>
+            <Text fontSize={14} color={'#000'}>Recommended{': '}-</Text>
           </Box>
           <Box>
             <Text as={'b'} fontSize={26} color={'#000'}>Keywords</Text>
