@@ -1,0 +1,53 @@
+[
+    {
+      "id": 1,
+      "name": "Women's",
+      "startA":20,
+      "status": true,
+      "bgColor":"#E1A1FF",
+      "discount":true, 
+      "startR":10,
+      "endR":70
+    },
+    {
+      "id": 2,
+      "name": "Men's",
+      "startA":35,
+      "status": true,
+      "bgColor":"#FFCEA1",
+      "discount":true, 
+      "startR":20,
+      "endR":50
+    },
+    {
+        "id": 3,
+        "name": "Children's",
+        "startA":19,
+        "status": true,
+        "bgColor":"#A1DDFF",
+        "discount":true, 
+        "startR":10,
+        "endR":60
+    },
+    {
+        "id": 4,
+        "name": "Accessories",
+        "startA":15,
+        "status": true,
+        "bgColor":"#E1A1FF",
+        "discount":false, 
+        "startR":20,
+        "endR":50
+    },
+    {
+        "id": 5,
+        "name": "Electronics",
+        "startA":120,
+        "status": false,
+        "bgColor":"#E1A1FF",
+        "discount":true, 
+        "startR":20,
+        "endR":50
+    }
+  ]
+  

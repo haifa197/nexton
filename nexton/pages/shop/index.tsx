@@ -2,7 +2,7 @@ import { Box, Container, Flex, HStack, Spacer, Stack, Text } from '@chakra-ui/re
 import ShopCard from '@/components/shop/shopcard';
 import FilterShop from '@/components/shop/filter';
 import { Pagination } from '@/components/product/pagination';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 const generateRandomItems = () => {
     const data = [];
     for (let i = 0; i < 20; i++) {
@@ -13,8 +13,9 @@ const generateRandomItems = () => {
     }
     return data;
   }
+
+
 const Shop = () => {
-    
 
   const [items, setItems] = useState<{ id: number, text: string }[]>(generateRandomItems());
   const [currentPage, setCurrentPage] = useState(1);
@@ -23,6 +24,8 @@ const Shop = () => {
   const addMoreItems = () => {
     setItems([...items, ...generateRandomItems()]);
   }
+
+
   return (
     <>
     <Container maxW='container.xl'>  

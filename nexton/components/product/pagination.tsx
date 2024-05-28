@@ -73,8 +73,8 @@ export const Pagination = (props: IPagination) => {
         <AlertIcon />
         <AlertTitle>The current page index is invalid</AlertTitle>
         <AlertDescription>
-          The current page index cannot be lower than 1. It currently is '
-          {props.currentPage}'
+          The current page index cannot be lower than 1. It currently is
+          {props.currentPage}
         </AlertDescription>
       </Alert>
     );
@@ -90,8 +90,8 @@ export const Pagination = (props: IPagination) => {
         <AlertTitle>The current page index is invalid</AlertTitle>
         <AlertDescription>
           The current page index cannot be greated than maximum number of pages
-          '{Math.floor(props.totalCount / props.pageSize)}'. It currently is '
-          {props.currentPage}'
+          {Math.floor(props.totalCount / props.pageSize)}. It currently is 
+          {props.currentPage}
         </AlertDescription>
       </Alert>
     );
