@@ -242,33 +242,33 @@ const ShopProductDetails = () => {
           </Box>
           <Box>
             <Text as={'b'} fontSize={26} color={'#000'}>Recommended products</Text>
-            <Text fontSize={14} color={'#000'}>Recommended{': '}products</Text>
-            <Text fontSize={14} color={'#000'}>Recommended{': '}products</Text>
+            <Text fontSize={14} color={'#000'}>Recommended Products</Text>
+            <Text fontSize={14} color={'#000'}>Recommended products</Text>
           </Box>
           <Box>
             <Text as={'b'} fontSize={26} color={'#000'}>Recommended products</Text>
-            <Text fontSize={14} color={'#000'}>Recommended{': '}0</Text>
-            <Text fontSize={14} color={'#000'}>Recommended{': '}-</Text>
-            <Text fontSize={14} color={'#000'}>Recommended{': '}-</Text>
+            <Text fontSize={14} color={'#000'}>Recommended </Text>
+            <Text fontSize={14} color={'#000'}>Recommended </Text>
+            <Text fontSize={14} color={'#000'}>Recommended </Text>
           </Box>
           <Box>
             <Text as={'b'} fontSize={26} color={'#000'}>Keywords</Text>
             <HStack>
               <HStack border={'1px solid'} borderRadius={16} p={1}>
                 <Image src="../Images/stars.svg" alt="star rating" />
-                <Text fontSize={10} pr={1}>men's fashion</Text>
+                <Text fontSize={10} pr={1}>mens fashion</Text>
               </HStack>
               <HStack border={'1px solid'} borderRadius={16} p={1}>
                 <Image src="../Images/stars.svg" alt="star rating" />
-                <Text fontSize={10} pr={1}>men's fashion</Text>
+                <Text fontSize={10} pr={1}>mens fashion</Text>
               </HStack>
               <HStack border={'1px solid'} borderRadius={16} p={1}>
                 <Image src="../Images/stars.svg" alt="star rating" />
-                <Text fontSize={10} pr={1}>men's fashion</Text>
+                <Text fontSize={10} pr={1}>mens fashion</Text>
               </HStack>
               <HStack border={'1px solid'} borderRadius={16} p={1}>
                 <Image src="../Images/stars.svg" alt="star rating" />
-                <Text fontSize={10} pr={1}>men's fashion</Text>
+                <Text fontSize={10} pr={1}>mens fashion</Text>
               </HStack>
             </HStack>
           </Box>
