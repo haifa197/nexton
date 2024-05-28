@@ -1,22 +1,13 @@
-import { Box, Card, CardBody, Image, Container, Divider, HStack, Heading, Stack, Text, Button, Input, useNumberInput, ButtonGroup, VStack } from '@chakra-ui/react';
-import Cards from '@/components/product/cards';
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "./styles.css";
-import 'swiper/css/free-mode';
-import 'swiper/css/navigation';
-import 'swiper/css/thumbs';
-import {  FreeMode, Navigation, Thumbs } from 'swiper/modules';
-import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { Box, Card, CardBody, Image, Container, Divider, HStack, Heading, Stack, Text, Button, Input, useNumberInput, ButtonGroup, VStack } from '@chakra-ui/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+import Cards from '@/components/product/cards';
 
 interface ISizeDetail {
   name: string;
@@ -33,22 +24,18 @@ interface ISize {
   '3xl': ISizeDetail[];
 }
 
-interface IImage {
+interface IProductImage {
   id: string;
   img: string;
 }
 
 interface IProductImages {
-  img: string | undefined;
-  image: IImage[];
-  image1: IImage[];
-  image2: IImage[];
-  image3: IImage[];
-  image4: IImage[];
-  image5: IImage[];
-  image6: IImage[];
-  image7: IImage[];
-
+  image: IProductImage[];
+  image1: IProductImage[];
+  image2: IProductImage[];
+  image3: IProductImage[];
+  image4: IProductImage[];
+  image5: IProductImage[];
 }
 
 interface IProduct {
@@ -62,7 +49,7 @@ interface IProduct {
   type: string;
   image: string;
   size: ISize[];
-  productImages: IProductImages[];
+  productImages: IProductImages;
 }
 
 interface ICategory {
@@ -78,7 +65,8 @@ interface ProductWithCategory {
   category: ICategory;
 }
 
-const shopProductDetails = () => {
+
+const ShopProductDetails = () => {
   const [product, setProduct] = useState<IProduct | null>(null);
   const [recommendations, setRecommendations] = useState<ProductWithCategory[]>([]);
   const router = useRouter();
@@ -105,6 +93,7 @@ const shopProductDetails = () => {
         .catch((error) => console.error('Error fetching product details:', error));
     }
   }, [shopdetailsid]);
+
 
   useEffect(() => {
     async function fetchRecommendations() {
@@ -154,145 +143,146 @@ const shopProductDetails = () => {
 
   return (
     <Container maxW='container.xl'>
+      <Stack>
+        <HStack my={10} spacing={20} position={'relative'}>
 
-      <>
-      <HStack my={10} spacing={20} position={'relative'}>
-        <Box w={'50%'} h={'450px'}>
-          <HStack spacing={5} justifyItems={'end'}>
-            <Box h={'450px'} w={'35%'} justifyItems={'end'}>
-            <Swiper
-                onSwiper={setThumbsSwiper}
-                direction={'vertical'}
-                spaceBetween={10}
-                slidesPerView={4}
-                freeMode={true}
-                watchSlidesProgress={true}
-                modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper img-size mrg"
-              >
-                {Object.values(product.productImages).flat().map((img, idx) => (
-                  <SwiperSlide key={idx}>
-                    <Image src={img.img} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </Box>
+          <Box w={'50%'} h={'450px'}>
+            <HStack spacing={5} justifyItems={'end'}>
+              <Box h={'450px'} w={'35%'} justifyItems={'end'}>
+                <Swiper
+                  onSwiper={setThumbsSwiper}
+                  direction={'vertical'}
+                  spaceBetween={10}
+                  slidesPerView={4}
+                  freeMode={true}
+                  watchSlidesProgress={true}
+                  modules={[FreeMode, Navigation, Thumbs]}
+                  className="mySwiper img-size mrg"
+                >
+                  {Object.values(product.productImages).flat().map((img, idx) => (
+                    <SwiperSlide key={idx}>
+                      <Image src={img.img} />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </Box>
 
-            <Box h={'450px'} w={'65%'} justifyItems={'end'}>
-              <Swiper
-                spaceBetween={10}
-                navigation={false}
-                thumbs={{ swiper: thumbsSwiper }}
-                modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper2 img-size-big"
-              >
-                {Object.values(product.productImages).flat().map((img, idx) => (
-                  <SwiperSlide key={idx}>
-                    <Image src={img.img} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </Box>
-          </HStack>
-          <Divider mt={18} />
-        </Box>
-        <Box w={'50%'}>
-          <Card maxW='sm'>
-            <CardBody>
-              <Stack spacing='3'>
-                <HStack spacing={40}>
+              <Box h={'450px'} w={'65%'} justifyItems={'end'}>
+                <Swiper
+                  spaceBetween={10}
+                  navigation={false}
+                  thumbs={{ swiper: thumbsSwiper }}
+                  modules={[FreeMode, Navigation, Thumbs]}
+                  className="mySwiper2 img-size-big"
+                >
+                  {Object.values(product.productImages).flat().map((img, idx) => (
+                    <SwiperSlide key={idx}>
+                      <Image src={img.img} />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </Box>
+            </HStack>
+            <Divider mt={18} />
+          </Box>
+          <Box w={'50%'}>
+            <Card maxW='sm'>
+              <CardBody>
+                <Stack spacing='3'>
+                  <HStack spacing={40}>
+                    <HStack>
+                      <Image src="../Images/star.png" alt="star rating" />
+                      <Text fontSize={10}>4.5 (98)</Text>
+                      <Text fontSize={10} as={'u'}>vvvvvghh</Text>
+                    </HStack>
+                    <VStack>
+                      <Heading size='md'>$56.99</Heading>
+                      <Text fontSize={10} as={'s'}>99.8</Text>
+                    </VStack>
+                  </HStack>
                   <HStack>
-                    <Image src="../Images/star.png" alt="star rating" />
-                    <Text fontSize={10}>4.5 (98)</Text>
-                    <Text fontSize={10} as={'u'}>vvvvvghh</Text>
+                    <Text>Size:</Text>
+                    <Text>S</Text>
                   </HStack>
-                  <VStack>
-                    <Heading size='md'>$56.99</Heading>
-                    <Text fontSize={10} as={'s'}>99.8</Text>
-                  </VStack>
-                </HStack>
-                <HStack>
-                  <Text>Size:</Text>
-                  <Text>S</Text>
-                </HStack>
-                <ButtonGroup variant='outline' spacing='4'>
-                  <Button fontSize={12} size='sm'>S</Button>
-                  <Button fontSize={12} size='sm'>M</Button>
-                  <Button fontSize={12} size='sm'>L</Button>
-                  <Button fontSize={12} size='sm'>XL</Button>
-                  <Button fontSize={12} size='sm'>2XL</Button>
-                </ButtonGroup>
-                <HStack spacing={28}>
-                  <HStack maxW='100px' h={8} px={1} borderRadius={20} bgColor={'#F8F8F8'}>
-                    <Button borderRadius={20} bgColor={'#FFF'} fontSize={12} size='xs' {...inc}>+</Button>
-                    <Input color={'#000'} border={'none'} size='xs' {...input} />
-                    <Button borderRadius={20} bgColor={'#FFF'} fontSize={12} size='xs' {...dec}>-</Button>
+                  <ButtonGroup variant='outline' spacing='4'>
+                    <Button fontSize={12} size='sm'>S</Button>
+                    <Button fontSize={12} size='sm'>M</Button>
+                    <Button fontSize={12} size='sm'>L</Button>
+                    <Button fontSize={12} size='sm'>XL</Button>
+                    <Button fontSize={12} size='sm'>2XL</Button>
+                  </ButtonGroup>
+                  <HStack spacing={28}>
+                    <HStack maxW='100px' h={8} px={1} borderRadius={20} bgColor={'#F8F8F8'}>
+                      <Button borderRadius={20} bgColor={'#FFF'} fontSize={12} size='xs' {...inc}>+</Button>
+                      <Input color={'#000'} border={'none'} size='xs' {...input} />
+                      <Button borderRadius={20} bgColor={'#FFF'} fontSize={12} size='xs' {...dec}>-</Button>
+                    </HStack>
+                    <Button bg={'#111827'} borderRadius={20} fontSize={12} size='sm' color={'#fff'}>
+                      <Image src='../Images/shopingbag.svg' alt='shopping bag' pl={1} />Add to cart
+                    </Button>
                   </HStack>
-                  <Button bg={'#111827'} borderRadius={20} fontSize={12} size='sm' color={'#fff'}>
-                    <Image src='../Images/shopingbag.svg' alt='shopping bag' pl={1} />Add to cart
-                  </Button>
-                </HStack>
-                <HStack spacing={60}>
-                  <Text>Total:</Text>
-                  <Text>$56.99</Text>
-                </HStack>
-                <Divider borderColor={'#E5E7EB'} my={5} />
-                <HStack spacing={60}>
-                  <Text as={'b'}>Total:</Text>
-                  <Text as={'b'}>$56.99</Text>
-                </HStack>
-              </Stack>
-            </CardBody>
-          </Card>
-        </Box>
-      </HStack>
-      <Stack my={16} position={'relative'}>
-        <Box>
-          <Text as={'b'} fontSize={26} color={'#000'}>Recommended products</Text>
-          <Text fontSize={14} color={'#000'}>Recommended products</Text>
-        </Box>
-        <Box>
-          <Text as={'b'} fontSize={26} color={'#000'}>Recommended products</Text>
-          <Text fontSize={14} color={'#000'}>Recommended: products</Text>
-          <Text fontSize={14} color={'#000'}>Recommended: products</Text>
-        </Box>
-        <Box>
-          <Text as={'b'} fontSize={26} color={'#000'}>Recommended products</Text>
-          <Text fontSize={14} color={'#000'}>Recommended: 0</Text>
-          <Text fontSize={14} color={'#000'}>Recommended: -</Text>
-          <Text fontSize={14} color={'#000'}>Recommended: -</Text>
-        </Box>
-        <Box>
-          <Text as={'b'} fontSize={26} color={'#000'}>Keywords</Text>
+                  <HStack spacing={60}>
+                    <Text>Total:</Text>
+                    <Text>$56.99</Text>
+                  </HStack>
+                  <Divider borderColor={'#E5E7EB'} my={5} />
+                  <HStack spacing={60}>
+                    <Text as={'b'}>Total:</Text>
+                    <Text as={'b'}>$56.99</Text>
+                  </HStack>
+                </Stack>
+              </CardBody>
+            </Card>
+          </Box>
+        </HStack>
+        <Stack my={16} position={'relative'}>
+          <Box>
+            <Text as={'b'} fontSize={26} color={'#000'}>Recommended products</Text>
+            <Text fontSize={14} color={'#000'}>Recommended products</Text>
+          </Box>
+          <Box>
+            <Text as={'b'} fontSize={26} color={'#000'}>Recommended products</Text>
+            <Text fontSize={14} color={'#000'}>Recommended: products</Text>
+            <Text fontSize={14} color={'#000'}>Recommended: products</Text>
+          </Box>
+          <Box>
+            <Text as={'b'} fontSize={26} color={'#000'}>Recommended products</Text>
+            <Text fontSize={14} color={'#000'}>Recommended: 0</Text>
+            <Text fontSize={14} color={'#000'}>Recommended: -</Text>
+            <Text fontSize={14} color={'#000'}>Recommended: -</Text>
+          </Box>
+          <Box>
+            <Text as={'b'} fontSize={26} color={'#000'}>Keywords</Text>
+            <HStack>
+              <HStack border={'1px solid'} borderRadius={16} p={1}>
+                <Image src="../Images/stars.svg" alt="star rating" />
+                <Text fontSize={10} pr={1}>men's fashion</Text>
+              </HStack>
+              <HStack border={'1px solid'} borderRadius={16} p={1}>
+                <Image src="../Images/stars.svg" alt="star rating" />
+                <Text fontSize={10} pr={1}>men's fashion</Text>
+              </HStack>
+              <HStack border={'1px solid'} borderRadius={16} p={1}>
+                <Image src="../Images/stars.svg" alt="star rating" />
+                <Text fontSize={10} pr={1}>men's fashion</Text>
+              </HStack>
+              <HStack border={'1px solid'} borderRadius={16} p={1}>
+                <Image src="../Images/stars.svg" alt="star rating" />
+                <Text fontSize={10} pr={1}>men's fashion</Text>
+              </HStack>
+            </HStack>
+          </Box>
+        </Stack>
+      
+        <Box mb={20}>
           <HStack>
-            <HStack border={'1px solid'} borderRadius={16} p={1}>
-              <Image src="../Images/stars.svg" alt="star rating" />
-              <Text fontSize={10} pr={1}>men's fashion</Text>
-            </HStack>
-            <HStack border={'1px solid'} borderRadius={16} p={1}>
-              <Image src="../Images/stars.svg" alt="star rating" />
-              <Text fontSize={10} pr={1}>men's fashion</Text>
-            </HStack>
-            <HStack border={'1px solid'} borderRadius={16} p={1}>
-              <Image src="../Images/stars.svg" alt="star rating" />
-              <Text fontSize={10} pr={1}>men's fashion</Text>
-            </HStack>
-            <HStack border={'1px solid'} borderRadius={16} p={1}>
-              <Image src="../Images/stars.svg" alt="star rating" />
-              <Text fontSize={10} pr={1}>men's fashion</Text>
-            </HStack>
+            <Text as={'b'} fontSize={36} color={'#000'}>Recommended products</Text>
           </HStack>
+          <Cards products={recommendations} />
         </Box>
       </Stack>
-      </>
-      <Box mb={20}>
-        <HStack>
-          <Text as={'b'} fontSize={36} color={'#000'}>Recommended products</Text>
-        </HStack>
-        <Cards products={recommendations} />
-      </Box>
     </Container>
   );
 };
 
-export default shopProductDetails;
+export default ShopProductDetails;
