@@ -67,75 +67,76 @@ interface ProductWithCategory {
 
 
 const ShopProductDetails = () => {
-  const [product, setProduct] = useState<IProduct | null>(null);
-  const [recommendations, setRecommendations] = useState<ProductWithCategory[]>([]);
-  const router = useRouter();
-  const { shopdetailsid } = router.query;
+  
+  const [product, setProduct] = useState<IProduct | null>(null)
+  const [recommendations, setRecommendations] = useState<ProductWithCategory[]>([])
+  const router = useRouter()
+  const { shopdetailsid } = router.query
 
-  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null)
   const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } = useNumberInput({
     step: 1,
     defaultValue: 1,
     min: 1,
     max: 15,
     precision: 0,
-  });
+  })
 
-  const inc = getIncrementButtonProps();
-  const dec = getDecrementButtonProps();
-  const input = getInputProps();
+  const inc = getIncrementButtonProps()
+  const dec = getDecrementButtonProps()
+  const input = getInputProps()
 
   useEffect(() => {
     if (shopdetailsid) {
       fetch(`/api/products/${shopdetailsid}`)
         .then((response) => response.json())
         .then((data: IProduct) => setProduct(data))
-        .catch((error) => console.error('Error fetching product details:', error));
+        .catch((error) => console.error('Error fetching product details:', error))
     }
-  }, [shopdetailsid]);
+  }, [shopdetailsid])
 
 
   useEffect(() => {
     async function fetchRecommendations() {
       try {
-        const productsResponse = await fetch('/api/products');
-        const productsData: IProduct[] = await productsResponse.json();
+        const productsResponse = await fetch('/api/products')
+        const productsData: IProduct[] = await productsResponse.json()
 
-        const categoriesResponse = await fetch('/api/categories');
-        const categoriesData: ICategory[] = await categoriesResponse.json();
+        const categoriesResponse = await fetch('/api/categories')
+        const categoriesData: ICategory[] = await categoriesResponse.json()
 
-        const randomProducts = getRandomProducts(productsData, categoriesData);
-        setRecommendations(randomProducts);
+        const randomProducts = getRandomProducts(productsData, categoriesData)
+        setRecommendations(randomProducts)
       } catch (error) {
-        console.error('Error fetching recommendations:', error);
+        console.error('Error fetching recommendations:', error)
       }
     }
 
     fetchRecommendations();
-  }, []);
+  }, [])
 
   const getRandomProductFromCategory = (products: IProduct[], categoryId: number): IProduct | undefined => {
-    const productsInCategory = products.filter(product => product.category === categoryId);
+    const productsInCategory = products.filter(product => product.category === categoryId)
     if (productsInCategory.length > 0) {
-      const randomIndex = Math.floor(Math.random() * productsInCategory.length);
-      return productsInCategory[randomIndex];
+      const randomIndex = Math.floor(Math.random() * productsInCategory.length)
+      return productsInCategory[randomIndex]
     }
-    return undefined;
+    return undefined
   };
 
   const getRandomProducts = (products: IProduct[], categories: ICategory[]): ProductWithCategory[] => {
-    const activeCategories = categories.filter(category => category.status);
-    let randomProducts: ProductWithCategory[] = [];
+    const activeCategories = categories.filter(category => category.status)
+    let randomProducts: ProductWithCategory[] = []
 
     activeCategories.forEach(category => {
-      const randomProduct = getRandomProductFromCategory(products, category.id);
+      const randomProduct = getRandomProductFromCategory(products, category.id)
       if (randomProduct) {
-        randomProducts.push({ product: randomProduct, category });
+        randomProducts.push({ product: randomProduct, category })
       }
     });
 
-    return randomProducts;
-  };
+    return randomProducts
+  }
 
   if (!product) {
     return <Text>Loading...</Text>;
