@@ -24,6 +24,7 @@ import {
   
     return (
       <Stack>
+        <form >
         <FormControl id="email" isRequired>
           <FormLabel>Email address</FormLabel>
           <Input type="text" />
@@ -46,6 +47,7 @@ import {
         <Stack spacing={10} pt={2}>
           <Button bg={'#111827'} w={'full'} borderRadius={20} fontSize={12} size='sm' color={'#fff'}>Continue</Button>
         </Stack>
+        </form>
         <Box position='relative' padding='10'>
           <Divider />
           <AbsoluteCenter bg='white' px='4'>
