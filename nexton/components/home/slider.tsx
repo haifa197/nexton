@@ -62,10 +62,10 @@ export default function Silder() {
                 right={0}
                 bottom={0}
                 >
-                 <Box position={'absolute'} py={'15%'} alignContent={'start'}  pl={'15%'} textAlign={'left'} maxW={'container.xl'}>
-                 <Text fontSize={'16px'} color={'#4B5563'}>Starting from: $49.99</Text>
-                  <Text fontSize={'36px'} color={'#4B5563'} >Exclusive collection for everyone</Text>
-                  <Button bg={'#111827'} color={'#fff'}>Explore now <Image src='./Images/search-w.png' alt='s' pl={1}/></Button>
+                 <Box position={'absolute'} py={{ base:'10%', sm:'10%', md:'15%' }} alignContent={'start'}  pl={'10%'} textAlign={'left'} maxW={'container.xl'}>
+                 <Text fontSize={{ base:12, sm:10, md:16 }} color={'#4B5563'}>Starting from: $49.99</Text>
+                  <Text fontSize={{ base:20, sm:16, md:36 }} color={'#4B5563'} >Exclusive collection for everyone</Text>
+                  <Button bg={'#111827'} color={'#fff'} fontSize={{ base:12, sm:8, md:16 }} >Explore now <Image src='./Images/search-w.png' alt='s' pl={1}/></Button>
                  </Box>
                   <Image alt="slider1"   w={'full'}  h={'full'}  bgPosition={'object-cover'} src="./Images/hero.png" className=""/>
                 </Box>
@@ -79,10 +79,10 @@ export default function Silder() {
                 left={0}
                 right={0}
                 bottom={0}>
-                <Box position={'absolute'} py={'15%'} pl={'57%'} textAlign={'right'}>
-                 <Text fontSize={'16px'} color={'#4B5563'}>Starting from: $49.99</Text>
-                  <Text fontSize={'36px'} color={'#4B5563'} >Exclusive collection for everyone</Text>
-                  <Button bg={'#111827'}  color={'#fff'}>Explore now <Image src='./Images/search-w.png' alt='s' pl={1}/></Button>
+                <Box position={'absolute'} py={{ base:'10%', sm:'10%', md:'15%' }} pl={'57%'} textAlign={'right'}>
+                 <Text fontSize={{ base:12, sm:10, md:16 }} color={'#4B5563'}>Starting from: $49.99</Text>
+                  <Text fontSize={{ base:20, sm:16, md:36 }}  color={'#4B5563'} >Exclusive collection for everyone</Text>
+                  <Button bg={'#111827'}  color={'#fff'} fontSize={{ base:12, sm:8, md:16 }}>Explore now <Image src='./Images/search-w.png' alt='s' pl={1}/></Button>
                  </Box>
                   <Image alt="slider1"  w={'full'}  h={'full'}  bgPosition={'object-cover'} src="./Images/hero1.png" className=""/>
                 </Box>
