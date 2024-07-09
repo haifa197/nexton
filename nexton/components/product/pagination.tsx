@@ -105,7 +105,7 @@ export const Pagination = (props: IPagination) => {
             disabled={props.currentPage - 1 <= 0}
             aria-label="previous"
             onClick={() => props.onGoToPage(props.currentPage - 1)}
-            variant={'outline'}
+            variant='outline'
             fontSize={'12px'}
           > <Image src="./Images/prev-btn.svg" alt="prev" />
           </IconButton>
@@ -116,7 +116,7 @@ export const Pagination = (props: IPagination) => {
               colorScheme={
                 pageNumber === props.currentPage ? "none" : undefined
               }
-              variant={'outline'}
+              variant='outline'
               fontSize={'12px'}
             >
               {pageNumber}
@@ -128,7 +128,7 @@ export const Pagination = (props: IPagination) => {
               Math.max(...pages) + 1 > props.totalCount / props.pageSize
             }
             onClick={() => props.onGoToPage(props.currentPage + 1)}
-            variant={'outline'}
+            variant='outline'
             fontSize={'12px'}
           ><Image src="./Images/next-btn.svg" alt="next"/></IconButton>
         </HStack>
