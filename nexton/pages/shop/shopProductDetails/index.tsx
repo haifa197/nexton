@@ -15,14 +15,14 @@ import { useState } from 'react';
 
 const shopProductDetails = () => {
  
-  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null)
+  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } = useNumberInput({
     step: 1,
     defaultValue: 1,
     min: 1,
     max: 15,
     precision: 0,
-  })
+  });
 
 const inc = getIncrementButtonProps()
 const dec = getDecrementButtonProps()
