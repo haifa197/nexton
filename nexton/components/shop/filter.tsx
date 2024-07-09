@@ -80,14 +80,14 @@ export default function FilterShop() {
               Sort order
             </Text>
             <RadioGroup onChange={setValue} value={value}>
-      <Stack mt={4} spacing={1}>
-        <Radio value='1'>1</Radio>
-        <Radio value='2'>2</Radio>
-        <Radio value='3'>3</Radio>
-        <Radio value='4'>4</Radio>
-        <Radio value='5'>5</Radio>
-      </Stack>
-    </RadioGroup>
+              <Stack mt={4} spacing={1}>
+                <Radio value='1'>1</Radio>
+                <Radio value='2'>2</Radio>
+                <Radio value='3'>3</Radio>
+                <Radio value='4'>4</Radio>
+                <Radio value='5'>5</Radio>
+              </Stack>
+            </RadioGroup>
             </Box>
           </Flex>
         </>

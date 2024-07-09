@@ -68,7 +68,7 @@ export default function Category() {
                 >
                 <HStack>
                     <Box p={'4%'} >
-                        <Text as={'b'} fontSize={'16px'}  color={'#4B5563'}>For Men's</Text>
+                        <Text as={'b'} fontSize={'16px'}  color={'#4B5563'}>For Mens</Text>
                         <Text fontSize={'10px'} color={'#4B5563'} >Starting at $24</Text>
                     </Box>
                     <Text as={'b'} borderStart={'solid 2px'} color={'#4B5563'}  fontSize={'10px'} pl={2}>
@@ -97,7 +97,7 @@ export default function Category() {
                 >
                     <HStack>
                     <Box p={'4%'} >
-                        <Text as={'b'} fontSize={'16px'}  color={'#4B5563'}>For Women's</Text>
+                        <Text as={'b'} fontSize={'16px'}  color={'#4B5563'}>For Womens</Text>
                         <Text fontSize={'10px'} color={'#4B5563'} >Starting at $19</Text>
                     </Box>
                     <Text as={'b'} borderStart={'solid 2px'} color={'#4B5563'}  fontSize={'10px'} pl={2}>
@@ -155,7 +155,7 @@ export default function Category() {
                 >
                 <HStack>
                     <Box p={'4%'} >
-                        <Text as={'b'} fontSize={'16px'}  color={'#4B5563'}>For Men's</Text>
+                        <Text as={'b'} fontSize={'16px'}  color={'#4B5563'}>For Mens</Text>
                         <Text fontSize={'10px'} color={'#4B5563'} >Starting at $24</Text>
                     </Box>
                     <Text as={'b'} borderStart={'solid 2px'} color={'#4B5563'}  fontSize={'10px'} pl={2}>
@@ -184,7 +184,7 @@ export default function Category() {
                 >
                     <HStack>
                     <Box p={'4%'} >
-                        <Text as={'b'} fontSize={'16px'}  color={'#4B5563'}>For Women's</Text>
+                        <Text as={'b'} fontSize={'16px'}  color={'#4B5563'}>For Womens</Text>
                         <Text fontSize={'10px'} color={'#4B5563'} >Starting at $19</Text>
                     </Box>
                     <Text as={'b'} borderStart={'solid 2px'} color={'#4B5563'}  fontSize={'10px'} pl={2}>
