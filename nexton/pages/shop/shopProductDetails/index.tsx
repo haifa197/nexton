@@ -2,7 +2,7 @@ import { Box, Card, CardBody, Image, Container, Divider, HStack, Heading, Stack,
 import Cards from '@/components/product/cards';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { Swiper as SwiperClass } from 'swiper';
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -10,12 +10,12 @@ import "./styles.css";
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
-import { FreeMode, Mousewheel, Navigation, Pagination, Thumbs } from 'swiper/modules';
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import { useState } from 'react';
 
 const shopProductDetails = () => {
  
-   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
   const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } = useNumberInput({
     step: 1,
     defaultValue: 1,
