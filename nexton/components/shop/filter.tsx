@@ -1,6 +1,6 @@
 "use client";
-import React, { useRef, useState } from "react";
-import { Image, Text, Box, HStack, Flex, Stack, Divider, CheckboxGroup, VStack, Checkbox, RangeSlider, RangeSliderTrack, RangeSliderFilledTrack, RangeSliderThumb, Input, InputGroup, InputRightElement, RadioGroup, Radio } from '@chakra-ui/react';
+import React from "react";
+import {  Text, Box, HStack, Flex, Stack, Divider, CheckboxGroup, Checkbox, RangeSlider, RangeSliderTrack, RangeSliderFilledTrack, RangeSliderThumb, Input, InputGroup, InputRightElement, RadioGroup, Radio } from '@chakra-ui/react';
 
 export default function FilterShop() {
     const [value, setValue] = React.useState('1')
