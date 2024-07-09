@@ -14,10 +14,10 @@ import { FreeMode, Mousewheel, Navigation, Pagination, Thumbs } from 'swiper/mod
 import { useState } from 'react';
 
 const shopProductDetails = () => {
-  const [thumbsSwiper, setThumbsSwiper] = useState('');
-  const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
-  useNumberInput({
-    step:1,
+ 
+  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null)
+  const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } = useNumberInput({
+    step: 1,
     defaultValue: 1,
     min: 1,
     max: 15,
