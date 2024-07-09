@@ -197,19 +197,19 @@ const input = getInputProps()
           <HStack>
             <HStack border={'1px solid'} borderRadius={16} p={1}>
                <Image src="../Images/stars.svg" alt="startreting"/>
-              <Text fontSize={10} pr={1}>men's fashion</Text>
+              <Text fontSize={10} pr={1}>mens fashion</Text>
             </HStack>
             <HStack border={'1px solid'} borderRadius={16} p={1}>
                <Image src="../Images/stars.svg" alt="startreting"/>
-              <Text fontSize={10} pr={1}>men's fashion</Text>
+              <Text fontSize={10} pr={1}>mens fashion</Text>
             </HStack>
             <HStack border={'1px solid'} borderRadius={16} p={1}>
                <Image src="../Images/stars.svg" alt="startreting"/>
-              <Text fontSize={10} pr={1}>men's fashion</Text>
+              <Text fontSize={10} pr={1}>mens fashion</Text>
             </HStack>
             <HStack border={'1px solid'} borderRadius={16} p={1}>
                <Image src="../Images/stars.svg" alt="startreting"/>
-              <Text fontSize={10} pr={1}>men's fashion</Text>
+              <Text fontSize={10} pr={1}>mens fashion</Text>
             </HStack>
           </HStack>
         </Box>
