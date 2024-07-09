@@ -1,4 +1,4 @@
-import { Box, Card, CardBody, Image, Container, Divider, HStack, Heading, Stack, Text, Button, Input, useNumberInput, ButtonGroup, VStack } from '@chakra-ui/react';
+import { Box, Card, CardBody, Image, Container, Divider, HStack, Heading, Stack, Text, Button, Input, useNumberInput, ButtonGroup, VStack, Flex } from '@chakra-ui/react';
 import Cards from '@/components/product/cards';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -31,8 +31,8 @@ const input = getInputProps()
     <>
   
     <Container maxW='container.xl' >  
-      <HStack my={10} spacing={20} position={'relative'}>
-        <Box w={'50%'} h={'450px'}>
+      <Flex my={10} direction={{ base: 'column', sm:'column', md: 'row' }} position={'relative'}>
+        <Box w={{ base:'100%', sm:'100%', md: '50%' }}  h={'450px'}>
           <HStack spacing={5} justifyItems={'end'}>
             <Box h={'450px'} w={'35%'} justifyItems={'end'}>
               <Swiper
@@ -78,7 +78,7 @@ const input = getInputProps()
               </Swiper>
             </Box>
           
-            <Box h={'450px'}w={'65%'} justifyItems={'end'}>
+            <Box h={'450px'} w={'65%'} justifyItems={'end'}>
             <Swiper
             spaceBetween={10}
             navigation={false}
@@ -119,9 +119,9 @@ const input = getInputProps()
             </Swiper>
             </Box>
           </HStack>
-          <Divider mt={18}/>
+          <Divider mt={18} display={{sm:"none"}}/>
         </Box>
-        <Box w={'50%'}>
+        <Box mt={{sm:10}} w={{ base:'100%', sm:'100%', md: '50%' }} >
           <Card maxW='sm'>
             <CardBody>
               <Stack spacing='3'>
@@ -175,7 +175,7 @@ const input = getInputProps()
             </CardBody>
           </Card>
         </Box>
-      </HStack>
+      </Flex>
       <Stack my={16} position={'relative'}>
         <Box>
           <Text as={'b'} fontSize={26} color={'#000'}>Recommended products</Text>

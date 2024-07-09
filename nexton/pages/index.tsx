@@ -13,15 +13,15 @@ const Home = () => {
       <Category/>
       <Box my={5}>
         <HStack>
-          <Text as={'b'} fontSize={36} color={'#000'}>Recommendations.</Text>
-          <Text as={'b'} fontSize={36} color={'#4B5563'} opacity={'80%'}>Best matching products for you</Text>
+          <Text as={'b'} fontSize={{ base:20, sm:16, md:36 }}  color={'#000'}>Recommendations.</Text>
+          <Text as={'b'} fontSize={{ base:20, sm:16, md:36 }}  color={'#4B5563'} opacity={'80%'}>Best matching products for you</Text>
         </HStack>
         <Cards/>
       </Box>
       <Box my={5}>
         <HStack>
-          <Text as={'b'} fontSize={36} color={'#000'}>Best Sellers.</Text>
-          <Text as={'b'} fontSize={36} color={'#4B5563'} opacity={'80%'}>Best selling of the month</Text>
+          <Text as={'b'} fontSize={{ base:20, sm:16, md:36 }}  color={'#000'}>Best Sellers.</Text>
+          <Text as={'b'} fontSize={{ base:20, sm:16, md:36 }}  color={'#4B5563'} opacity={'80%'}>Best selling of the month</Text>
         </HStack>
         <Cards/>
       </Box>
