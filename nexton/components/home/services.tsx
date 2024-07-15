@@ -6,10 +6,9 @@ export default function Services() {
 
     return (
         <>
-        <Grid templateColumns={{ base: 'repeat(1, 1fr)', sm: 'repeat(1, 1fr)', md: 'repeat(4, 1fr)'}} w={'full'}  justifyContent={"center"}
-                  alignContent={"center"} border={'solid 1px'} borderColor={'#E5E7EB'} 
+        <Grid templateColumns='repeat(4, 1fr)' w={'full'} gap={4} border={'solid 1px'} borderColor={'#E5E7EB'} 
         padding={4} borderRadius={'16px'} margin={5}>
-            <GridItem w='100%' h='50px' px={4} borderEnd={{ base: 'none', sm: 'none', md: 'solid 1px' }} borderColor={'#E5E7EB'}>
+            <GridItem w='100%' h='50px' px={4} borderEnd={'solid 1px'}  borderColor={'#E5E7EB'}>
                <HStack>
                     <Image src="./Images/free-d.svg" alt="free"/>
                     <Box>
@@ -19,7 +18,7 @@ export default function Services() {
                </HStack>
             </GridItem>
            
-            <GridItem w='100%' h='50px' px={4} borderEnd={{ base: 'none', sm: 'none', md: 'solid 1px' }} borderColor={'#E5E7EB'}>
+            <GridItem w='100%' h='50px' px={4} borderEnd={'solid 1px'}  borderColor={'#E5E7EB'}>
                 <HStack>
                     <Image src="./Images/easy.svg" alt="easy"/>
                     <Box>
@@ -29,7 +28,7 @@ export default function Services() {
                 </HStack>
             </GridItem>
          
-            <GridItem w='100%' h='50px' px={4} borderEnd={{ base: 'none', sm: 'none', md: 'solid 1px' }} borderColor={'#E5E7EB'}>
+            <GridItem w='100%' h='50px' px={4} borderEnd={'solid 1px'}  borderColor={'#E5E7EB'}>
                 <HStack>
                     <Image src="./Images/world.svg" alt="world"/>
                     <Box>

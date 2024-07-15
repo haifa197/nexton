@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
-import {  Text, Box, HStack, Flex, Stack, Divider, CheckboxGroup, Checkbox, RangeSlider, RangeSliderTrack, RangeSliderFilledTrack, RangeSliderThumb, Input, InputGroup, InputRightElement, RadioGroup, Radio } from '@chakra-ui/react';
+import React, { useRef, useState } from "react";
+import { Image, Text, Box, HStack, Flex, Stack, Divider, CheckboxGroup, VStack, Checkbox, RangeSlider, RangeSliderTrack, RangeSliderFilledTrack, RangeSliderThumb, Input, InputGroup, InputRightElement, RadioGroup, Radio } from '@chakra-ui/react';
 
 export default function FilterShop() {
     const [value, setValue] = React.useState('1')
@@ -80,14 +80,14 @@ export default function FilterShop() {
               Sort order
             </Text>
             <RadioGroup onChange={setValue} value={value}>
-              <Stack mt={4} spacing={1}>
-                <Radio value='1'>1</Radio>
-                <Radio value='2'>2</Radio>
-                <Radio value='3'>3</Radio>
-                <Radio value='4'>4</Radio>
-                <Radio value='5'>5</Radio>
-              </Stack>
-            </RadioGroup>
+      <Stack mt={4} spacing={1}>
+        <Radio value='1'>1</Radio>
+        <Radio value='2'>2</Radio>
+        <Radio value='3'>3</Radio>
+        <Radio value='4'>4</Radio>
+        <Radio value='5'>5</Radio>
+      </Stack>
+    </RadioGroup>
             </Box>
           </Flex>
         </>
