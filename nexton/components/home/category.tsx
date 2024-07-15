@@ -11,7 +11,7 @@ import "swiper/css/pagination";
 import "./styles.css";
 
 // import required modules
-import { Autoplay, Navigation, Pagination, Thumbs, EffectCreative } from "swiper/modules";
+import { Autoplay, Navigation, Pagination, Thumbs } from "swiper/modules";
 
 export default function Category() {
   
@@ -27,14 +27,24 @@ export default function Category() {
   return (
     <Box m={5}>
         <HStack>
-        <Text as={'b'} fontSize={36}color={'#000'}>Start exploring.</Text>
-        <Text as={'b'} fontSize={36}color={'#4B5563'}>Good things are waiting for you</Text>
+        <Text as={'b'} fontSize={{ base:20, sm:16, md:36 }}  color={'#000'}>Start exploring.</Text>
+        <Text as={'b'} fontSize={{ base:20, sm:16, md:36 }}  color={'#4B5563'}>Good things are waiting for you</Text>
         </HStack>
        <Swiper
-          slidesPerView={3}
           spaceBetween={30}
           pagination={{
             clickable: true,
+          }}
+          breakpoints={{
+            640: {
+              slidesPerView:1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
           }}
           className="mySwiper swiper-pagination-top"
           modules={[Pagination, Thumbs, Autoplay, Navigation]}
@@ -58,7 +68,7 @@ export default function Category() {
                 >
                 <HStack>
                     <Box p={'4%'} >
-                        <Text as={'b'} fontSize={'16px'}  color={'#4B5563'}>For Men's</Text>
+                        <Text as={'b'} fontSize={'16px'}  color={'#4B5563'}>For Mens</Text>
                         <Text fontSize={'10px'} color={'#4B5563'} >Starting at $24</Text>
                     </Box>
                     <Text as={'b'} borderStart={'solid 2px'} color={'#4B5563'}  fontSize={'10px'} pl={2}>
@@ -87,7 +97,7 @@ export default function Category() {
                 >
                     <HStack>
                     <Box p={'4%'} >
-                        <Text as={'b'} fontSize={'16px'}  color={'#4B5563'}>For Women's</Text>
+                        <Text as={'b'} fontSize={'16px'}  color={'#4B5563'}>For Womens</Text>
                         <Text fontSize={'10px'} color={'#4B5563'} >Starting at $19</Text>
                     </Box>
                     <Text as={'b'} borderStart={'solid 2px'} color={'#4B5563'}  fontSize={'10px'} pl={2}>
@@ -145,7 +155,7 @@ export default function Category() {
                 >
                 <HStack>
                     <Box p={'4%'} >
-                        <Text as={'b'} fontSize={'16px'}  color={'#4B5563'}>For Men's</Text>
+                        <Text as={'b'} fontSize={'16px'}  color={'#4B5563'}>For Mens</Text>
                         <Text fontSize={'10px'} color={'#4B5563'} >Starting at $24</Text>
                     </Box>
                     <Text as={'b'} borderStart={'solid 2px'} color={'#4B5563'}  fontSize={'10px'} pl={2}>
@@ -174,7 +184,7 @@ export default function Category() {
                 >
                     <HStack>
                     <Box p={'4%'} >
-                        <Text as={'b'} fontSize={'16px'}  color={'#4B5563'}>For Women's</Text>
+                        <Text as={'b'} fontSize={'16px'}  color={'#4B5563'}>For Womens</Text>
                         <Text fontSize={'10px'} color={'#4B5563'} >Starting at $19</Text>
                     </Box>
                     <Text as={'b'} borderStart={'solid 2px'} color={'#4B5563'}  fontSize={'10px'} pl={2}>
